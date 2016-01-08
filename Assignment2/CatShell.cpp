@@ -319,20 +319,17 @@ namespace CShell
 		//check to see if the user is trying to escape the shell!
 		bool escape = false;
 		//Create a shell object
-		CatShell *shell(new CatShell());
+		CatShell shell;
 		string expression;
 
-		shell->intro();
+		shell.intro();
 		// Enter the shell loop.
 		while (!escape)
 		{
 			//Pretend you are root with root access
-			cout << "[" << shell->getName() << "] ~ $ ";
+			cout << "[" << shell.getName() << "] ~ $ ";
 			getline(cin, expression);
-			shell->readCommand(expression, escape);
+			shell.readCommand(expression, escape);
 		}
-
-		delete shell;
-		shell = NULL;
 	}
 } /* CShell */
